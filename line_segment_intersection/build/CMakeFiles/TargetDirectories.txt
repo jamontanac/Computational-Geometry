@@ -1,0 +1,7 @@
+/Users/jamontanac/Dropbox/Geometria computacional/line_segment_intersection/build/CMakeFiles/edit_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/line_segment_intersection/build/CMakeFiles/rebuild_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/line_segment_intersection/build/app/CMakeFiles/PUJ_LineSegmentsIntersections_innocent_brute_force.dir
+/Users/jamontanac/Dropbox/Geometria computacional/line_segment_intersection/build/app/CMakeFiles/PUJ_LineSegmentsIntersections_brute_force.dir
+/Users/jamontanac/Dropbox/Geometria computacional/line_segment_intersection/build/app/CMakeFiles/PUJ_LineSegmentsIntersections_sweep.dir
+/Users/jamontanac/Dropbox/Geometria computacional/line_segment_intersection/build/app/CMakeFiles/edit_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/line_segment_intersection/build/app/CMakeFiles/rebuild_cache.dir

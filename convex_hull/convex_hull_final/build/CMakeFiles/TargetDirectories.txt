@@ -1,0 +1,7 @@
+/Users/jamontanac/Dropbox/Geometria computacional/convex_hull/convex_hull_final/build/CMakeFiles/edit_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/convex_hull/convex_hull_final/build/CMakeFiles/rebuild_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/convex_hull/convex_hull_final/build/app/CMakeFiles/PUJ_ConvexHull_create_pointcloud.dir
+/Users/jamontanac/Dropbox/Geometria computacional/convex_hull/convex_hull_final/build/app/CMakeFiles/PUJ_ConvexHull_brute_force.dir
+/Users/jamontanac/Dropbox/Geometria computacional/convex_hull/convex_hull_final/build/app/CMakeFiles/PUJ_ConvexHull_incremental.dir
+/Users/jamontanac/Dropbox/Geometria computacional/convex_hull/convex_hull_final/build/app/CMakeFiles/edit_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/convex_hull/convex_hull_final/build/app/CMakeFiles/rebuild_cache.dir

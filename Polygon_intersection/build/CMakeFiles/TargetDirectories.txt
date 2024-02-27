@@ -1,0 +1,5 @@
+/Users/jamontanac/Dropbox/Geometria computacional/Polygon_intersection/build/CMakeFiles/edit_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/Polygon_intersection/build/CMakeFiles/rebuild_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/Polygon_intersection/build/app/CMakeFiles/Polygon_Intersection_points.dir
+/Users/jamontanac/Dropbox/Geometria computacional/Polygon_intersection/build/app/CMakeFiles/edit_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/Polygon_intersection/build/app/CMakeFiles/rebuild_cache.dir
