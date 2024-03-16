@@ -34,4 +34,7 @@
 #folders
 Clases/
 .vscode
+
+Build/
+
 .DS_Store
