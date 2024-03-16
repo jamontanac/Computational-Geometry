@@ -67,24 +67,39 @@ int main( int argc, char** argv )
     T.build_from_polygon( P.begin( ), P.end( ) );
   else
     T.build_from_polygon( P.rbegin( ), P.rend( ) );
-  auto triangles = get_triangles(T);
-  for(const auto &t : triangles)
-  {
-    auto p0 = T.geometry()[std::get<0>(t)];
-    auto p1 = T.geometry()[std::get<1>(t)];
-    auto p2 = T.geometry()[std::get<2>(t)];
-    // std::cout << p0.x() << " " << p1.x() << " " << p2.x() << std::endl;
-    // auto [p0, p1, p2] = std::tie(T.geometry()[std::get<0>(t)], T.geometry()[std::get<1>(t)], T.geometry()[std::get<2>(t)]);
-    // auto barycenter = (p0 + p1 + p2) / 3;
-    auto barycenter = CGAL::barycenter(p0,1,p1,1,p2,1);
-    // std::cout << barycenter.x() << " " << barycenter.y() << std::endl;
-    unsigned long long barycenter_index = T.add_point(barycenter);
 
-    T.add_edge(std::get<0>(t), barycenter_index);
-    T.add_edge(std::get<1>(t), barycenter_index);
-    T.add_edge(std::get<2>(t), barycenter_index);
-    // std::cout << std::get<0>(t) << " " << std::get<1>(t) << " " << std::get<2>(t) << std::endl;
+
+  int times_to_repeat = 2;
+  for(int i = 0; i < times_to_repeat; i++){
+    // Add the barycenter of each triangle to the triangulation (and connect it to the vertices of the triangle)
+    auto triangles = get_triangles(T);
+    for(const auto &t : triangles)
+    {
+      auto p0 = T.geometry()[std::get<0>(t)];
+      auto p1 = T.geometry()[std::get<1>(t)];
+      auto p2 = T.geometry()[std::get<2>(t)];
+      auto barycenter = CGAL::barycenter(p0,1,p1,1,p2,1);
+      unsigned long long barycenter_index = T.add_point(barycenter);
+
+      T.add_edge(std::get<0>(t), barycenter_index);
+      T.add_edge(std::get<1>(t), barycenter_index);
+      T.add_edge(std::get<2>(t), barycenter_index);
+    }
   }
+  // auto triangles = get_triangles(T);
+  // for(const auto &t : triangles)
+  // {
+  //   auto p0 = T.geometry()[std::get<0>(t)];
+  //   auto p1 = T.geometry()[std::get<1>(t)];
+  //   auto p2 = T.geometry()[std::get<2>(t)];
+  //   auto barycenter = CGAL::barycenter(p0,1,p1,1,p2,1);
+  //   unsigned long long barycenter_index = T.add_point(barycenter);
+
+  //   T.add_edge(std::get<0>(t), barycenter_index);
+  //   T.add_edge(std::get<1>(t), barycenter_index);
+  //   T.add_edge(std::get<2>(t), barycenter_index);
+  // }
+
 
   std::cout<<T<<std::endl;
   return( EXIT_SUCCESS );
