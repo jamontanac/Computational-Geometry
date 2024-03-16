@@ -36,5 +36,8 @@ Clases/
 .vscode
 
 Build/
+build/
+*Build/
+*build/
 
 .DS_Store
