@@ -1,0 +1,5 @@
+/Users/jamontanac/Dropbox/Geometria computacional/Refining_triangulation/Build/CMakeFiles/edit_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/Refining_triangulation/Build/CMakeFiles/rebuild_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/Refining_triangulation/Build/app/CMakeFiles/PolygonTriangulation.dir
+/Users/jamontanac/Dropbox/Geometria computacional/Refining_triangulation/Build/app/CMakeFiles/edit_cache.dir
+/Users/jamontanac/Dropbox/Geometria computacional/Refining_triangulation/Build/app/CMakeFiles/rebuild_cache.dir
