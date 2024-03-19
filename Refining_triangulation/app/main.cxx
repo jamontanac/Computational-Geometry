@@ -90,8 +90,10 @@ void refine_triangulation_area(TTriangulation &T, double area_threshold){
   unsigned long long number_triangles = T.number_of_points()-2;
   unsigned long long n = 0;
   unsigned long long area_count = 0;
-  while( area_count <= number_triangles) {
+  unsigned long long expected_triangles = 3*number_triangles-2*area_count;
+  while( area_count <= expected_triangles) {
       triangles = get_triangles(T);
+
       for (const auto& t : triangles) {
         auto barycenter = make_barycenter_partition(t,T);
 
@@ -101,20 +103,27 @@ void refine_triangulation_area(TTriangulation &T, double area_threshold){
           continue;
         }
         
-        // std::cout<<area_count<<std::endl;
+        // std::cout<<barycenter.second<<std::endl;
         unsigned long long barycenter_index = T.add_point(barycenter.first);
         T.add_edge(std::get<0>(t), barycenter_index);
         T.add_edge(std::get<1>(t), barycenter_index);
         T.add_edge(std::get<2>(t), barycenter_index);
         n+=3;
       }
-      if (number_triangles == area_count)
+      std::cout<<"Number of triangles: "<<number_triangles<< " Expected_previous " << expected_triangles<<" triangles over area "<<area_count<<std::endl;
+      if(area_count >= expected_triangles)
         break;
+      expected_triangles = 3*number_triangles-2*area_count;
+      // std::cout<<"Number of triangles: "<<number_triangles<< " Expected_after " << expected_triangles<<" triangles over area "<<area_count<<std::endl;
+
+      // if (number_triangles == area_count )
+      //   break;
+
+      
       number_triangles = n;
-      // std::cout<<"supposed "<<3*number_triangles-2*area_count<<std::endl;
-      // std::cout<<"Number of triangles: "<<number_triangles<<" triangles over area "<<area_count<<std::endl;
       area_count = 0;
       n=0;
+      // std::cout<<"supposed "<<3*number_triangles-2*area_count<<std::endl;
   }
 }
 
@@ -124,9 +133,10 @@ void refine_triangulation_both(TTriangulation &T, int partitions, double area_th
   unsigned long long n = 0;
   unsigned long long area_count = 0;
   int refinement_count = 0;
-
-  while( refinement_count <= partitions || area_count <= number_triangles) {
+  unsigned long long expected_triangles = 3*number_triangles-2*area_count;
+  while( refinement_count <= partitions && area_count <= number_triangles) {
       triangles = get_triangles(T);
+
       for (const auto& t : triangles) {
         auto barycenter = make_barycenter_partition(t,T);
 
@@ -142,12 +152,18 @@ void refine_triangulation_both(TTriangulation &T, int partitions, double area_th
         T.add_edge(std::get<2>(t), barycenter_index);
         n+=3;
       }
-      if (number_triangles == area_count)
-        break;
-      number_triangles = n;
-      refinement_count++;
       std::cout<<"Number of triangles: "<<number_triangles<<
       " triangles over area "<<area_count<<" iteration number "<<refinement_count<<std::endl;
+
+      if(area_count >= expected_triangles)
+        break;
+      expected_triangles = 3*number_triangles-2*area_count;
+      // if (number_triangles == area_count)
+      //   break;
+      number_triangles = n;
+      refinement_count++;
+      area_count = 0;
+      n=0;
   }
 }
 

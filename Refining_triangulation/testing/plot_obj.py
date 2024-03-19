@@ -1,5 +1,6 @@
 import vtk
 import numpy as np
+import sys
 
 def plot_obj(obj_path, color, opacity):
     # Read the obj file
@@ -19,7 +20,7 @@ def plot_obj(obj_path, color, opacity):
 
     return actor
 
-def main():
+def main(obj_path:str='../build/triangulation.obj'):
     # Create a renderer
     renderer = vtk.vtkRenderer()
     renderer.SetBackground(0.1, 0.2, 0.4)
@@ -33,7 +34,7 @@ def main():
     render_window_interactor.SetRenderWindow(render_window)
 
     # Add the actors to the scene
-    obj_path = '../build/triangulation.obj'
+    # obj_path = '../build/triangulation.obj'
     color = np.array([0.5, 0.5, 0.5])
     opacity = 1.0
     actor = plot_obj(obj_path, color, opacity)
@@ -44,4 +45,5 @@ def main():
     render_window_interactor.Start()
 
 if __name__ == '__main__':
-    main()
+    path = sys.argv[1] if len(sys.argv) > 1 else '../build/triangulation.obj'
+    main(path)
